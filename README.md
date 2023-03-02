@@ -1,6 +1,6 @@
 <h1 align="center">
-	<a href="https://gadget.mimfa.net" target="_blank">
-		<img alt="MiMFa Gadget" width="20%" src="https://gadget.mimfa.net/product/inDocuments/logo.png"/>
+	<a href="https://inDocuments.mimfa.net" target="_blank">
+		<img alt="MiMFa inDocuments" width="20%" src="https://inDocuments.mimfa.net/file/logo/logo.png"/>
 		<br>
 		<a href="https://github.com/mimfa">MiMFa</a> <a href="https://github.com/mimfa/inDocuments">inDocuments</a>
 	</a>
