@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFC30699-A797-40C6-B6AB-C3AFCF29B0A2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MiMFa</RootNamespace>
+    <AssemblyName>MiMFa inDocument</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MiMFa.UIL.Searcher.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Search.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API.cs" />
+    <Compile Include="Compute\Kernel.cs" />
+    <Compile Include="inDocuments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inDocuments.Designer.cs">
+      <DependentUpon>inDocuments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Infra\Service.cs" />
+    <Compile Include="Model\Configuration.cs" />
+    <Compile Include="Model\Sources.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="inDocuments.resx">
+      <DependentUpon>inDocuments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\back-black.png" />
+    <Content Include="Resources\browse.png" />
+    <Content Include="Resources\carat-d-black.png" />
+    <Content Include="Resources\carat-l-black.png" />
+    <Content Include="Resources\copy.png" />
+    <Content Include="Resources\copy1.png" />
+    <Content Include="Resources\cut.png" />
+    <Content Include="Resources\del.png" />
+    <Content Include="Resources\eye-black.png" />
+    <Content Include="Resources\paste.png" />
+    <Content Include="Resources\pause-color.png" />
+    <Content Include="Resources\recycle-black.png" />
+    <Content Include="Resources\recycle-white.png" />
+    <Content Include="Resources\Refresh.png" />
+    <Content Include="Resources\right-color.png" />
+    <Content Include="Resources\s.png" />
+    <Content Include="Resources\SaveAz.png" />
+    <Content Include="Resources\search-black.png" />
+    <Content Include="Resources\search-white.png" />
+    <Content Include="Resources\stop-color.png" />
+    <Content Include="Search.ico" />
+    <None Include="Resources\Web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Core\MiMFa.csproj">
+      <Project>{ADC72CD2-885E-442A-983E-0BA87B7234EF}</Project>
+      <Name>MiMFa</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Exclusive\MiMFa.Exclusive.csproj">
+      <Project>{7d8b3a64-3768-4150-b2c1-5a9b405b8c80}</Project>
+      <Name>MiMFa.Exclusive</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Technology\MiMFa.Technology.csproj">
+      <Project>{f3df1e73-2074-4d92-9ed7-b026c14eb207}</Project>
+      <Name>MiMFa.Technology</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
