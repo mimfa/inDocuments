@@ -11,5 +11,5 @@
   <li><a href="https://versionsof.net/framework/4.5.2">.Net Framework 4.5.2</a></li>
   <li><a href="https://github.com/mimfa/Framework.Core">MiMFa Framework.Core</a></li>
   <li><a href="https://github.com/mimfa/Framework.Exclusive">MiMFa Framework.Exclusive</a></li>
-  <li><a href="https://github.com/mimfa/Framework.Exclusive">MiMFa Framework.Technology</a></li>
+  <li><a href="https://github.com/mimfa/Framework.Technology">MiMFa Framework.Technology</a></li>
 </ol>
