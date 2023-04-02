@@ -117,15 +117,15 @@
     <None Include="Resources\Web.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Core\MiMFa.csproj">
+    <ProjectReference Include="..\..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Core\MiMFa.csproj">
       <Project>{ADC72CD2-885E-442A-983E-0BA87B7234EF}</Project>
       <Name>MiMFa</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Exclusive\MiMFa.Exclusive.csproj">
+    <ProjectReference Include="..\..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Exclusive\MiMFa.Exclusive.csproj">
       <Project>{7d8b3a64-3768-4150-b2c1-5a9b405b8c80}</Project>
       <Name>MiMFa.Exclusive</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Technology\MiMFa.Technology.csproj">
+    <ProjectReference Include="..\..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Technology\MiMFa.Technology.csproj">
       <Project>{f3df1e73-2074-4d92-9ed7-b026c14eb207}</Project>
       <Name>MiMFa.Technology</Name>
     </ProjectReference>
