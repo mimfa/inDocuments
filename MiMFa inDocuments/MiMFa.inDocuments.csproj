@@ -7,7 +7,7 @@
     <ProjectGuid>{AFC30699-A797-40C6-B6AB-C3AFCF29B0A2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>MiMFa</RootNamespace>
-    <AssemblyName>MiMFa inDocument</AssemblyName>
+    <AssemblyName>MiMFa inDocuments</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
