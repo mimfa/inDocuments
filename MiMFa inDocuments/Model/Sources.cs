@@ -14,8 +14,8 @@ namespace MiMFa.UIL.Searcher.Model
     }
     public delegate void ForEachHandler(string items);
     public delegate void LogHandler(int type, string message);
-    public delegate string MachHandler(string addr);
-    public delegate string MachHandlerByPOut(string addr, out string path);
+    public delegate string MatchHandler(string addr);
+    public delegate string MatchHandlerByPath(string addr, out string path);
     public class Sources : List<string>
     {
         public SourceState State = SourceState.Local;

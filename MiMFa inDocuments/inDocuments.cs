@@ -20,6 +20,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiMFa.Exclusive.Animate;
+using MiMFa.Model.IO;
+using System.Text.RegularExpressions;
 
 namespace MiMFa.UIL.Searcher
 {
@@ -564,7 +566,7 @@ namespace MiMFa.UIL.Searcher
 
         }
 
-        private bool SaerchInAllFiles(Sources files, MachHandler matchs)
+        private bool SaerchInAllFiles(Sources files, MatchHandler matchs)
         {
             Log("Search in Files...", 0);
             string summary = "";
@@ -575,7 +577,7 @@ namespace MiMFa.UIL.Searcher
                 catch (Exception ex) { Log(ex, addr); }
             });
         }
-        private bool ReplaceInAllFiles(Sources files, MachHandler matchs)
+        private bool ReplaceInAllFiles(Sources files, MatchHandler matchs)
         {
             Log("Replace in Files...", 0);
             string summary = "";
@@ -660,7 +662,7 @@ namespace MiMFa.UIL.Searcher
             }
         }
 
-        private bool SaerchInAllPages(Sources urls, MachHandler matchs)
+        private bool SaerchInAllPages(Sources urls, MatchHandler matchs)
         {
             Log("Search in Web...", 0);
             string summary = "";
@@ -671,7 +673,7 @@ namespace MiMFa.UIL.Searcher
                 catch (Exception ex) { Log(ex, addr); }
             });
         }
-        private bool SaerchInAllPages(Sources urls, MachHandlerByPOut matchs)
+        private bool SaerchInAllPages(Sources urls, MatchHandlerByPath matchs)
         {
             Log("Search in Web...", 0);
             string summary = "";
@@ -694,7 +696,7 @@ namespace MiMFa.UIL.Searcher
                 }
             });
         }
-        private bool ReplaceInAllPages(Sources urls, MachHandler matchs)
+        private bool ReplaceInAllPages(Sources urls, MatchHandler matchs)
         {
             Log("Replace in Web Result...", 0);
             string summary = "";
@@ -766,7 +768,7 @@ namespace MiMFa.UIL.Searcher
                     });
             }
         }
-        private bool ReplaceInAllPages(Sources urls, MachHandlerByPOut matchs)
+        private bool ReplaceInAllPages(Sources urls, MatchHandlerByPath matchs)
         {
             Log("Replace in Web Result...", 0);
             string summary = "";
@@ -1025,7 +1027,7 @@ namespace MiMFa.UIL.Searcher
             int num = -1;
             ControlService.SetControlThreadSafe(DGV, (aa) =>
             DGV.Rows[num = DGV.Rows.Add(DGV.RowCount + 1, name, addr, API.Configuration.Highlights ? summary : "")].Tag = path);
-            Log(DGV.RowCount + "th Found in " + name, 1);
+            Log(ConvertService.ToOrdinalNumber(DGV.RowCount) + " Found in " + name, 1);
             return num;
         }
         private void ShowItem()
@@ -1037,9 +1039,15 @@ namespace MiMFa.UIL.Searcher
             try
             {
                 ControlService.RichTextBoxAppendWithStyle(ref rtb_Result, DGV.CurrentRow.Cells[FileName.Name].Value + Environment.NewLine + Environment.NewLine, Color.Black, HorizontalAlignment.Center);
-                ControlService.RichTextBoxAppendWithStyle(ref rtb_Result, StringService.Compress(DGV.CurrentRow.Cells[Summary.Name].Value + "", 1000, "...") + Environment.NewLine + Environment.NewLine, Color.Black, HorizontalAlignment.Left);
+                ControlService.RichTextBoxAppendWithStyle(ref rtb_Result, StringService.Compress(DGV.CurrentRow.Cells[Summary.Name].Value + "", 10000, "...") + Environment.NewLine + Environment.NewLine, Color.Black, HorizontalAlignment.Left);
                 ControlService.RichTextBoxAppendWithStyle(ref rtb_Result, DGV.CurrentRow.Tag + "", Color.DarkGray, HorizontalAlignment.Left);
-                foreach (var v in MainKernel.Searcher.SearchLowerWords) ControlService.RichTextBoxChangeWordColor(ref rtb_Result, v, Color.Red, Color.Yellow);
+                if(rb_Pattern.Checked)
+                    ControlService.RichTextBoxChangeWordColor(ref rtb_Result, MainKernel.Searcher.SearchPattern, RegexOptions.IgnoreCase, Color.Red, Color.Yellow, true);
+                else if(rb_Like.Checked)
+                    foreach (var v in MainKernel.Searcher.SearchWords) ControlService.RichTextBoxChangeWordColor(ref rtb_Result, v, Color.Red, Color.Yellow, true);
+                else if (rb_Same.Checked)
+                    ControlService.RichTextBoxChangeWordColor(ref rtb_Result, MainKernel.Searcher.SearchWord, Color.Red, Color.Yellow, true);
+                else foreach (var v in MainKernel.Searcher.SearchLowerWords) ControlService.RichTextBoxChangeWordColor(ref rtb_Result, v, Color.Red, Color.Yellow, true);
             }
             catch (Exception ex) { DialogService.ShowMessage(ex); }
         }
@@ -1087,7 +1095,27 @@ namespace MiMFa.UIL.Searcher
                 DGV.Refresh();
             });
         }
-
+    
+        private void ToggleHeight(TextBox ctrl, int normalHeight = 20)
+        {
+            if (ctrl.Height <= normalHeight*2)
+                Expand(ctrl, normalHeight);
+            else Collapse(ctrl, normalHeight); 
+        }
+        private void Collapse(TextBox ctrl, int normalHeight = 20)
+        {
+            ctrl.Multiline = false;
+            ctrl.ScrollBars = ScrollBars.None;
+            ctrl.Height = normalHeight;
+            ctrl.Text = string.Join(ctrl.Tag + "", ctrl.Text.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries));
+        }
+        private void Expand(TextBox ctrl, int normalHeight = 20)
+        {
+            ctrl.Multiline = true;
+            ctrl.Text = string.Join(Environment.NewLine, ctrl.Text.Split(new string[] { ctrl.Tag + "" }, StringSplitOptions.RemoveEmptyEntries));
+            ctrl.ScrollBars = ScrollBars.Vertical;
+            ctrl.Height = normalHeight * 6;
+        }
 
         private void btn_browse_Click(object sender, EventArgs e)
         {
@@ -1166,13 +1194,13 @@ namespace MiMFa.UIL.Searcher
                     {
                         PB.Maximum = DGV.SelectedRows.Count;
                         PB.Value = 0;
-                        List<string> ls = new List<string>();
+                        ChainedFile ls = new ChainedFile(SFD.FileName);
                         for (int i = 0; i < DGV.SelectedRows.Count; i++)
                         {
-                            ls.Add((DGV.SelectedRows[i].Tag ?? DGV.CurrentRow.Cells[Source.Name].Value) + "");
+                            ls.WriteRow(from cell in DGV.SelectedRows[i].Cells.Cast<DataGridViewCell>() select ""+cell.Value);
                             PB.Value = i;
                         }
-                        File.WriteAllLines(SFD.FileName, ls);
+                        ls.Save();
                         PB.Value = 0;
                         Log("Result Stored successful!", 1);
                     }
@@ -1277,6 +1305,7 @@ namespace MiMFa.UIL.Searcher
         private void tb_Ext_TextChanged(object sender, EventArgs e)
         {
             cb_Ext.Checked = (tb_Ext.Text != "");
+            if (tb_Ext.Focused && tb_Ext.Text.Contains(tb_Ext.Tag+"")) Expand(tb_Ext);
         }
         private void InDocument_DragEnter(object sender, DragEventArgs e)
         {
@@ -1347,17 +1376,7 @@ namespace MiMFa.UIL.Searcher
         }
         private void tb_ChangeHeight(object sender, EventArgs e)
         {
-            TextBox tb = GetOwnerTextBox(sender);
-            if (tb.Height > 40)
-            {
-                tb.Height = tb.Height / 5;
-                tb.Text = string.Join(tb.Tag + "", tb.Text.Split(new string[] { Environment.NewLine, "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries));
-            }
-            else
-            {
-                tb.Text = string.Join(Environment.NewLine, tb.Text.Split(new string[] { tb.Tag + "" }, StringSplitOptions.RemoveEmptyEntries));
-                tb.Height = tb.Height * 5;
-            }
+            ToggleHeight(GetOwnerTextBox(sender));
         }
         private void MHK_KeyPressed(object sender, KeyEventArgs e)
         {
@@ -1415,7 +1434,9 @@ namespace MiMFa.UIL.Searcher
         }
         private TextBox GetOwnerTextBox(object sender)
         {
-            if (this.ActiveControl is TextBox)
+            if (sender is TextBox)
+                return (TextBox)sender;
+            else if(this.ActiveControl is TextBox)
                 return (TextBox)this.ActiveControl;
             else return tb_Search;
         }
@@ -1489,6 +1510,7 @@ namespace MiMFa.UIL.Searcher
             var sou = GetSources(tb_Directory.Text);
             if (sou[2].Count > 0) btn_browse.Visible = false;
             else btn_browse.Visible = true;
+            if (tb_Directory.Focused && sou[0].Count + sou[1].Count + sou[2].Count > 1) Expand(tb_Directory);
         }
 
     }

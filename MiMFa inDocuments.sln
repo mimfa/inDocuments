@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiMFa.inDocuments", "MiMFa inDocuments\MiMFa.inDocuments.csproj", "{AFC30699-A797-40C6-B6AB-C3AFCF29B0A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiMFa", "..\..\..\Technology\MiMFa Framework\MiMFa Framework\Core\MiMFa.csproj", "{ADC72CD2-885E-442A-983E-0BA87B7234EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiMFa", "..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Core\MiMFa.csproj", "{ADC72CD2-885E-442A-983E-0BA87B7234EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiMFa.Exclusive", "..\..\..\Technology\MiMFa Framework\MiMFa Framework\Exclusive\MiMFa.Exclusive.csproj", "{7D8B3A64-3768-4150-B2C1-5A9B405B8C80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiMFa.Exclusive", "..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Exclusive\MiMFa.Exclusive.csproj", "{7D8B3A64-3768-4150-B2C1-5A9B405B8C80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiMFa.Technology", "..\..\..\Technology\MiMFa Framework\MiMFa Framework\Technology\MiMFa.Technology.csproj", "{F3DF1E73-2074-4D92-9ED7-B026C14EB207}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiMFa.Technology", "..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Technology\MiMFa.Technology.csproj", "{F3DF1E73-2074-4D92-9ED7-B026C14EB207}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

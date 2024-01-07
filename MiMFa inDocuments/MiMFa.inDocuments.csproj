@@ -118,7 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Core\MiMFa.csproj">
-      <Project>{ADC72CD2-885E-442A-983E-0BA87B7234EF}</Project>
+      <Project>{adc72cd2-885e-442a-983e-0ba87b7234ef}</Project>
       <Name>MiMFa</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\Technology\MiMFa Framework\MiMFa Framework\Exclusive\MiMFa.Exclusive.csproj">

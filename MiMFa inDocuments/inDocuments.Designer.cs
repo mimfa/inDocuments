@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(inDocuments));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.p_BrowseDirectory = new System.Windows.Forms.Panel();
             this.tb_Directory = new System.Windows.Forms.TextBox();
             this.CMSTB = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -62,9 +62,9 @@
             this.Summary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMSDGV = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_CopyRoot = new System.Windows.Forms.ToolStripMenuItem();
@@ -179,6 +179,7 @@
             this.tb_Directory.Tag = ",";
             this.TT.SetToolTip(this.tb_Directory, "Ability to search and replace in different locations together.\r\nYou only should s" +
         "eparate your address by \'.\' or \';\' or press Enter.");
+            this.tb_Directory.WordWrap = false;
             this.tb_Directory.TextChanged += new System.EventHandler(this.tb_Directory_TextChanged);
             this.tb_Directory.DragDrop += new System.Windows.Forms.DragEventHandler(this.tb_Replace_DragDrop);
             this.tb_Directory.DragEnter += new System.Windows.Forms.DragEventHandler(this.tb_Replace_DragEnter);
@@ -206,7 +207,7 @@
             // 
             // searchToolStripMenuItem
             // 
-            this.searchToolStripMenuItem.Image = MiMFa.Properties.Resources.search_black;
+            this.searchToolStripMenuItem.Image = global::MiMFa.Properties.Resources.search_black;
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             this.searchToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.searchToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
@@ -216,7 +217,7 @@
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.Image = MiMFa.Properties.Resources.carat_d_black;
+            this.toolStripMenuItem1.Image = global::MiMFa.Properties.Resources.carat_d_black;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.ShortcutKeys = System.Windows.Forms.Keys.Insert;
             this.toolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
@@ -243,7 +244,7 @@
             // 
             // copyToolStripMenuItem1
             // 
-            this.copyToolStripMenuItem1.Image = MiMFa.Properties.Resources.copy;
+            this.copyToolStripMenuItem1.Image = global::MiMFa.Properties.Resources.copy;
             this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
             this.copyToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.copyToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
@@ -252,7 +253,7 @@
             // 
             // cutToolStripMenuItem
             // 
-            this.cutToolStripMenuItem.Image = MiMFa.Properties.Resources.cut;
+            this.cutToolStripMenuItem.Image = global::MiMFa.Properties.Resources.cut;
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.cutToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
@@ -261,7 +262,7 @@
             // 
             // pasteToolStripMenuItem
             // 
-            this.pasteToolStripMenuItem.Image = MiMFa.Properties.Resources.paste;
+            this.pasteToolStripMenuItem.Image = global::MiMFa.Properties.Resources.paste;
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.pasteToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
@@ -283,7 +284,7 @@
             // 
             // clearToolStripMenuItem
             // 
-            this.clearToolStripMenuItem.Image = MiMFa.Properties.Resources.del;
+            this.clearToolStripMenuItem.Image = global::MiMFa.Properties.Resources.del;
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
             this.clearToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
             this.clearToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
@@ -438,20 +439,20 @@
             this.Source,
             this.Summary});
             this.DGV.ContextMenuStrip = this.CMSDGV;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(119)))), ((int)(((byte)(214)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(119)))), ((int)(((byte)(214)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DGV.DefaultCellStyle = dataGridViewCellStyle6;
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV.Location = new System.Drawing.Point(0, 0);
             this.DGV.Name = "DGV";
             this.DGV.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(4);
-            this.DGV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(4);
+            this.DGV.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.DGV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGV.ShowCellErrors = false;
@@ -473,8 +474,8 @@
             // 
             // FileName
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.FileName.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.FileName.DefaultCellStyle = dataGridViewCellStyle5;
             this.FileName.HeaderText = "Name";
             this.FileName.Name = "FileName";
             this.FileName.ReadOnly = true;
@@ -498,50 +499,50 @@
             // 
             this.CMSDGV.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showToolStripMenuItem,
-            this.openToolStripMenuItem,
-            this.toolStripSeparator1,
             this.exportToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.openToolStripMenuItem,
             this.toolStripSeparator3,
             this.copyToolStripMenuItem,
             this.moveToToolStripMenuItem,
             this.toolStripSeparator2,
             this.deleteToolStripMenuItem});
             this.CMSDGV.Name = "CMS";
-            this.CMSDGV.Size = new System.Drawing.Size(120, 154);
+            this.CMSDGV.Size = new System.Drawing.Size(184, 154);
             // 
             // showToolStripMenuItem
             // 
-            this.showToolStripMenuItem.Image = MiMFa.Properties.Resources.eye_black;
+            this.showToolStripMenuItem.Image = global::MiMFa.Properties.Resources.eye_black;
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.showToolStripMenuItem.Text = "Show";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.showToolStripMenuItem.Text = "Show Record";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Image = MiMFa.Properties.Resources.back_black;
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(116, 6);
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportToolStripMenuItem.Image")));
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.exportToolStripMenuItem.Text = "Export";
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.exportToolStripMenuItem.Text = "Export Records";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(180, 6);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = global::MiMFa.Properties.Resources.back_black;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.openToolStripMenuItem.Text = "Open Documents";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(116, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(180, 6);
             // 
             // copyToolStripMenuItem
             // 
@@ -550,8 +551,8 @@
             this.browseToolStripMenuItem});
             this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.copyToolStripMenuItem.Text = "Copy To";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.copyToolStripMenuItem.Text = "Copy Documents To";
             // 
             // tsmi_CopyRoot
             // 
@@ -574,8 +575,8 @@
             this.browseToolStripMenuItem1});
             this.moveToToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("moveToToolStripMenuItem.Image")));
             this.moveToToolStripMenuItem.Name = "moveToToolStripMenuItem";
-            this.moveToToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.moveToToolStripMenuItem.Text = "Move To";
+            this.moveToToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.moveToToolStripMenuItem.Text = "Move Documents To";
             // 
             // tsmi_MoveRoot
             // 
@@ -594,14 +595,14 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(116, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(180, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.deleteToolStripMenuItem.Text = "Delete Documents";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // cb_Recursive
@@ -698,7 +699,7 @@
             this.btn_Replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Replace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_Replace.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Replace.Image = MiMFa.Properties.Resources.recycle_white;
+            this.btn_Replace.Image = global::MiMFa.Properties.Resources.recycle_white;
             this.btn_Replace.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Replace.Location = new System.Drawing.Point(5, 5);
             this.btn_Replace.Name = "btn_Replace";
@@ -724,7 +725,7 @@
             this.btn_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_Search.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Search.Image = MiMFa.Properties.Resources.search_white;
+            this.btn_Search.Image = global::MiMFa.Properties.Resources.search_white;
             this.btn_Search.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Search.Location = new System.Drawing.Point(107, 5);
             this.btn_Search.Name = "btn_Search";
@@ -912,7 +913,7 @@
             this.cb_resources.Name = "cb_resources";
             this.cb_resources.Size = new System.Drawing.Size(109, 40);
             this.cb_resources.TabIndex = 8;
-            this.cb_resources.Text = "Show Resources";
+            this.cb_resources.Text = "Show Contents";
             this.cb_resources.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.TT.SetToolTip(this.cb_resources, "Found text is shown with highlighted keywords so you don’t need to waste time ope" +
         "ning each file looking for the right information.");
@@ -977,6 +978,7 @@
             this.tb_Ext.Size = new System.Drawing.Size(405, 20);
             this.tb_Ext.TabIndex = 3;
             this.tb_Ext.Tag = ",";
+            this.tb_Ext.WordWrap = false;
             this.tb_Ext.TextChanged += new System.EventHandler(this.tb_Ext_TextChanged);
             this.tb_Ext.DragDrop += new System.Windows.Forms.DragEventHandler(this.tb_Replace_DragDrop);
             this.tb_Ext.DragEnter += new System.Windows.Forms.DragEventHandler(this.tb_Replace_DragEnter);
@@ -1346,7 +1348,7 @@
             // 
             this.l_Drower.BackColor = System.Drawing.SystemColors.Menu;
             this.l_Drower.Dock = System.Windows.Forms.DockStyle.Left;
-            this.l_Drower.Image = MiMFa.Properties.Resources.carat_l_black;
+            this.l_Drower.Image = global::MiMFa.Properties.Resources.carat_l_black;
             this.l_Drower.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.l_Drower.Location = new System.Drawing.Point(5, 0);
             this.l_Drower.Name = "l_Drower";
@@ -1479,7 +1481,6 @@
             // 
             // inDocuments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.RoyalBlue;
             this.CancelButton = this.btn_Cancel;
@@ -1503,8 +1504,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MiMFa InDocuments";
             this.Activated += new System.EventHandler(this.InDocument_Activated);
-            this.Load += new System.EventHandler(this.InDocument_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InDocument_FormClosing);
+            this.Load += new System.EventHandler(this.InDocument_Load);
             this.SizeChanged += new System.EventHandler(this.InDocument_SizeChanged);
             this.p_BrowseDirectory.ResumeLayout(false);
             this.p_BrowseDirectory.PerformLayout();
